@@ -24,7 +24,7 @@ namespace CopaMundoFilmes.Domain
             _limiteFilmes = limiteFilmes;
         }
 
-        public void Add(Filme filme)
+        public void AddFilme(Filme filme)
         {
             if (_filmes.Count == _limiteFilmes)
                 throw new DominioException($"A Copa não pode ter mais que {_limiteFilmes} filmes");

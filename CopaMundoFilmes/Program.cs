@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace CopaMundoFilmes
+namespace CopaMundoFilmes.Api
 {
     public class Program
     {

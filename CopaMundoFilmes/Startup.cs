@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using CopaMundoFilmes.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
-namespace CopaMundoFilmes
+namespace CopaMundoFilmes.Api
 {
     public class Startup
     {
@@ -24,6 +19,8 @@ namespace CopaMundoFilmes
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddHttpClient<FilmeService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
