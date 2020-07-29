@@ -8,11 +8,11 @@ namespace CopaMundoFilmes.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FilmesController : ControllerBase
+    public class FilmeController : ControllerBase
     {
         private readonly FilmeService _filmeService;
 
-        public FilmesController(FilmeService filmeService)
+        public FilmeController(FilmeService filmeService)
         {
             _filmeService = filmeService;
         }

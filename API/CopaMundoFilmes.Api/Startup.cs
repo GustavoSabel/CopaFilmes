@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Polly;
+using Polly.Extensions.Http;
+using System;
+using System.Net.Http;
 
 namespace CopaMundoFilmes.Api
 {
@@ -20,7 +24,16 @@ namespace CopaMundoFilmes.Api
         {
             services.AddControllers();
 
-            services.AddHttpClient<FilmeService>();
+            services.AddHttpClient<FilmeService>()
+                .AddPolicyHandler(GetRetryPolicy());
+        }
+
+        static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+        {
+            return HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
+                .WaitAndRetryAsync(3, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
