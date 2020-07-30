@@ -1,0 +1,25 @@
+.filmecheck {
+  background-color: #EFEFEF;
+  height: 70px;
+  min-width: 200px;
+  flex: 0;
+  margin: 8px 2px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.filmecheck-check {
+  margin-left: 8px;
+}
+
+.filmecheck-detalhes {
+  margin-left: 16px;
+}
+
+.filmecheck-detalhes-titulo {
+  font-weight: bold;
+}
+
+
+

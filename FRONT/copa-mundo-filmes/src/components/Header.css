@@ -1,0 +1,32 @@
+.header {
+  background-color: #6E6E6E;
+  color: #EFEFEF;
+  text-align: center;
+  padding: 32px;
+}
+
+.header-titulo {
+  font-size: 13px;
+  color: #A8A8A8;
+}
+
+.header-fase {
+  font-size: 30px;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.header-traco {
+  background-color: #A8A8A8;
+  width: 20px;
+  height: 2px;
+  margin: auto;
+  margin-bottom: 32px;
+
+}
+
+.header-descricao {
+  font-size: 13px;
+  margin: auto;
+  width: 500px;
+}
