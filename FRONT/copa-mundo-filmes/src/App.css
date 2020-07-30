@@ -12,6 +12,33 @@ body{
   justify-content: space-between;
 }
 
+.selecao-detalhes {
+  display:flex;
+  justify-content:space-between;
+  margin: 8px 0 4px 0;
+}
+
+.selecao-detalhes-texto {
+  color: white ;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.selecao-detalhes-botaogerar button {
+  background-color: #404040;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.selecao-detalhes-botaogerar button:hover{
+  cursor: pointer;
+}
+
 input[type=checkbox] {
   position: relative;
   cursor: pointer;

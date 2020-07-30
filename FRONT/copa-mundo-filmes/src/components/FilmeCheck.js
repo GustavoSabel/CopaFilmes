@@ -3,9 +3,9 @@ import './FilmeCheck.css'
 
 function FilmeCheck(props) {
   return (
-      <div className="filmecheck">
+      <div className="filmecheck" onClick={() => props.onChange()}>
         <div className="filmecheck-check">
-          <input type="checkbox" className="check"></input>
+          <input type="checkbox" className="check" checked={props.selecionado}></input>
         </div>
         <div className="filmecheck-detalhes">
           <div className="filmecheck-detalhes-titulo">
