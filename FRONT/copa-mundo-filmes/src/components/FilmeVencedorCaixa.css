@@ -1,0 +1,25 @@
+.filmevencedorcaixa {
+  display: flex;
+  margin-top: 10px;
+  height: 100px;
+}
+
+.filmevencedorcaixa-colocado {
+  background-color: #6E6E6E;
+  font-size: 30px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filmevencedorcaixa-titulo {
+  background-color: #EFEFEF;
+  font-size: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 20px;
+}
+
