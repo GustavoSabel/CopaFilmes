@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+
+  copa_api:
+    container_name: copa_api
+    build:
+      context: './API'
+    ports:
+      - 5000:80
+    restart: on-failure
+
+  copa_front:
+    container_name: copa_front
+    build:
+      context: './FRONT/copa-mundo-filmes'
+    ports:
+      - 3000:3000
