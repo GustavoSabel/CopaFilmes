@@ -1,16 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header'
-import FilmeService from '../services/FilmeService';
-import CopaService from '../services/CopaService';
+import Services from '../services';
 import Filmes from '../components/Filmes';
 
 function SelecaoPage(props) {
   const [filmes, setFilmes] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => setFilmes(await FilmeService.ObterTodos());
+    const fetchData = async () => setFilmes(await Services.Filme.ObterTodos());
     fetchData();
   }, []);
+
+  async function realizarDisputa() {
+    var vencedores = await Services.Copa.Disputar(filmes.filter(x => x.selecionado));
+    props.aoFinalizarTorneio(vencedores);
+  }
+
+  function handleChangeCheck(filme) {
+    const novaLista = filmes.map((item) => {
+      if (item.id === filme.id) {
+        return { ...item, selecionado: !filme.selecionado };
+      }
+      return item;
+    });
+    setFilmes(novaLista);
+  }
 
   return (
     <div>
@@ -27,21 +41,6 @@ function SelecaoPage(props) {
       <Filmes filmes={filmes} handleChangeCheck={handleChangeCheck} />
     </div>
   );
-
-  async function realizarDisputa() {
-    var vencedores = await CopaService.Disputar(filmes.filter(x => x.selecionado));
-    props.aoFinalizarTorneio(vencedores);
-  }
-
-  function handleChangeCheck(filme) {
-    const novaLista = filmes.map((item) => {
-      if (item.id === filme.id) {
-        return { ...item, selecionado: !filme.selecionado };
-      }
-      return item;
-    });
-    setFilmes(novaLista);
-  }
 }
 
 export default SelecaoPage;

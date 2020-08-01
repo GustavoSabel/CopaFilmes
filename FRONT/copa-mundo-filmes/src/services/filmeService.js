@@ -1,8 +1,8 @@
-import Axios from 'axios'
+import api from './Api';
 
 const FilmeService = {
     async ObterTodos() {
-        let result = (await Axios.get('/api/filme')).data;
+        let result = (await api.get('/api/filme')).data;
         return result;
     },
 }

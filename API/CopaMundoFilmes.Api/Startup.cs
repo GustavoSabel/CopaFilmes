@@ -1,9 +1,9 @@
+using CopaMundoFilmes.Api.Extensions;
 using CopaMundoFilmes.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Polly;
 using Polly.Extensions.Http;
 using System;
@@ -38,10 +38,7 @@ namespace CopaMundoFilmes.Api
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseExceptionHandlerApp(env);
 
             app.UseCors(x =>
             {
