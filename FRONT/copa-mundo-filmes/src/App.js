@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import SelecaoPage from './pages/SelecaoPage';
 import ResultadoFinalPage from './pages/ResultadoFinalPage';
-import Axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   let [vencedores, setVencedores] = useState(null);
