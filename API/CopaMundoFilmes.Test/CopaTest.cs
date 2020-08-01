@@ -7,6 +7,27 @@ namespace CopaMundoFilmes.Test
 {
     public class CopaTest
     {
+        /// <summary>
+        /// Esse foi o exemplo dado no pdf do desafio
+        /// </summary>
+        [Fact]
+        public void Caso_de_teste_do_desafio()
+        {
+            var copa = new Copa(8);
+            copa.AddFilme(CriarFilme("Os Incríveis 2", 8.5m));
+            copa.AddFilme(CriarFilme("Jurassic World: Reino Ameaçado", 6.7m));
+            copa.AddFilme(CriarFilme("Oito Mulheres e um Segredo", 6.3m));
+            copa.AddFilme(CriarFilme("Hereditário", 7.8m));
+            copa.AddFilme(CriarFilme("Vingadores: Guerra Infinita", 8.8m));
+            copa.AddFilme(CriarFilme("Deadpool 2", 8.1m));
+            copa.AddFilme(CriarFilme("Han Solo: Uma História Star Wars", 7.2m));
+            copa.AddFilme(CriarFilme("Thor: Ragnarok", 7.9m));
+
+            var vencedores = copa.ExecutarDisputas();
+            vencedores.Campeao.Titulo.Should().Be("Vingadores: Guerra Infinita");
+            vencedores.ViceCampeao.Titulo.Should().Be("Os Incríveis 2");
+        }
+
         [Fact]
         public void Menos_filme_que_o_informado()
         {
@@ -129,31 +150,15 @@ namespace CopaMundoFilmes.Test
             vencedores.ViceCampeao.Titulo.Should().Be("B");
         }
 
-        /// <summary>
-        /// Esse foi o exemplo dado no pdf do desafio
-        /// </summary>
-        [Fact]
-        public void Caso_de_teste_do_desafio()
+        private static Filme CriarFilme(string titulo, decimal nota)
         {
-            var copa = new Copa(8);
-            copa.AddFilme(CriarFilme("Os Incríveis 2", 8.5m));
-            copa.AddFilme(CriarFilme("Jurassic World: Reino Ameaçado", 6.7m));
-            copa.AddFilme(CriarFilme("Oito Mulheres e um Segredo", 6.3m));
-            copa.AddFilme(CriarFilme("Hereditário", 7.8m));
-            copa.AddFilme(CriarFilme("Vingadores: Guerra Infinita", 8.8m));
-            copa.AddFilme(CriarFilme("Deadpool 2", 8.1m));
-            copa.AddFilme(CriarFilme("Han Solo: Uma História Star Wars", 7.2m));
-            copa.AddFilme(CriarFilme("Thor: Ragnarok", 7.9m));
-
-            var vencedores = copa.ExecutarDisputas();
-            vencedores.Campeao.Titulo.Should().Be("Vingadores: Guerra Infinita");
-            vencedores.ViceCampeao.Titulo.Should().Be("Os Incríveis 2");
-        }
-
-
-        private static Filme CriarFilme(string nome, decimal nota)
-        {
-            return new Filme("0", nome, 2000, nota);
+            return new Filme()
+            {
+                Id = "0",
+                Ano = 2000,
+                Nota = nota,
+                Titulo = titulo
+            };
         }
     }
 }
