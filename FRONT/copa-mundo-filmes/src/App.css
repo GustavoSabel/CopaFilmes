@@ -3,15 +3,27 @@
 }
 
 .filmes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-gap: 8px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 1000px) {
+  .filmes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .filmes {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .selecao-detalhes {
   display:flex;
   justify-content:space-between;
-  margin: 8px 0 4px 0;
+  margin-bottom: 8px;
 }
 
 .selecao-detalhes-texto {
