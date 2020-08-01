@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header'
-import FilmeCheck from '../components/FilmeCheck';
-import FilmeService from '../services/filmeService';
+import FilmeService from '../services/FilmeService';
+import CopaService from '../services/CopaService';
+import Filmes from '../components/Filmes';
 
-function SelecaoPage() {
+function SelecaoPage(props) {
   const [filmes, setFilmes] = useState([]);
 
   useEffect(() => {
@@ -19,15 +20,18 @@ function SelecaoPage() {
           <span>Selecionado</span><br/>
           <span>{filmes.filter(x => x.selecionado === true).length} de 8 filmes</span>
         </div>
-        <div className="selecao-detalhes-botaogerar">
-          <button >GERAR MEU CAMPEONATO</button>
+        <div>
+          <button className="botao" onClick={() => realizarDisputa()}>GERAR MEU CAMPEONATO</button>
         </div>
       </div>
-      <div className="filmes">
-        {filmes.map(x => <FilmeCheck key={x.id} {...x} onChange={() => handleChangeCheck(x)}></FilmeCheck>)}
-      </div>
+      <Filmes filmes={filmes} handleChangeCheck={handleChangeCheck} />
     </div>
   );
+
+  async function realizarDisputa() {
+    var vencedores = await CopaService.Disputar(filmes.filter(x => x.selecionado));
+    props.aoFinalizarTorneio(vencedores);
+  }
 
   function handleChangeCheck(filme) {
     const novaLista = filmes.map((item) => {

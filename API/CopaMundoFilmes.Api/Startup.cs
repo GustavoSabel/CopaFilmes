@@ -43,7 +43,11 @@ namespace CopaMundoFilmes.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(x => x.AllowAnyOrigin());
+            app.UseCors(x =>
+            {
+                x.AllowAnyOrigin();
+                x.AllowAnyHeader();
+            });
 
             app.UseRouting();
 
