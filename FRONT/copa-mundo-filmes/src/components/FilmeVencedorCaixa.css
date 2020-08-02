@@ -5,8 +5,9 @@
 }
 
 .filmevencedorcaixa-colocado {
-  background-color: #6E6E6E;
-  font-size: 30px;
+  background-color: #265E53;
+  color: white;
+  font-size: 50px;
   width: 100px;
   display: flex;
   justify-content: center;
@@ -14,7 +15,7 @@
 }
 
 .filmevencedorcaixa-titulo {
-  background-color: #EFEFEF;
+  background-color: white;
   font-size: 25px;
   width: 100%;
   display: flex;

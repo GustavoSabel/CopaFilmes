@@ -11,7 +11,7 @@ function FilmeCheck(props) {
           <div className="filmecheck-detalhes-titulo">
             <span>{props.titulo}</span>
           </div>
-          <div>
+          <div className="filmecheck-detalhes-ano">
             <span>{props.ano}</span>
           </div>
         </div>
