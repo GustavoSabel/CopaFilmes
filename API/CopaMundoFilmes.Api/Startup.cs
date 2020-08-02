@@ -28,6 +28,8 @@ namespace CopaMundoFilmes.Api
 
             services.AddHttpClient<FilmeService>()
                 .AddPolicyHandler(GetRetryPolicy());
+
+            services.AddSwaggerGen();
         }
 
         static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
@@ -56,6 +58,13 @@ namespace CopaMundoFilmes.Api
             {
                 x.AllowAnyOrigin();
                 x.AllowAnyHeader();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
             });
 
             app.UseRouting();
